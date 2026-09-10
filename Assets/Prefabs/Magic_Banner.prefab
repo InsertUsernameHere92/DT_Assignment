@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5044861369362430506
+--- !u!1001 &1987461831793072022
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6109331853064158385, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0.51180243
       objectReference: {fileID: 0}
     - target: {fileID: 6109331853064158385, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0.4981266
       objectReference: {fileID: 0}
     - target: {fileID: 6109331853064158385, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
       propertyPath: m_AnchorMax.x
@@ -70,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6109331853064158385, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 6.705768
       objectReference: {fileID: 0}
     - target: {fileID: 6109331853064158385, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.33842468
       objectReference: {fileID: 0}
     - target: {fileID: 6109331853064158385, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -91,15 +91,23 @@ PrefabInstance:
     - target: {fileID: 6686478652149038749, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1891026796, guid: 555b035262b65f44d929d07b3644ef57, type: 3}
+      objectReference: {fileID: -1311363544, guid: 555b035262b65f44d929d07b3644ef57, type: 3}
+    - target: {fileID: 6686478652149038749, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6686478652149038749, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -333299849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694604891483957304, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
+      propertyPath: Name
+      value: Magic_Banner
+      objectReference: {fileID: 0}
     - target: {fileID: 8466013121356321608, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
       propertyPath: m_Name
-      value: Trophy Variant
+      value: Magic_Banner
       objectReference: {fileID: 0}
-    - target: {fileID: 8837709840916367895, guid: 38ac6bbf37654444eb15beb3c4d87749, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1891026796, guid: 555b035262b65f44d929d07b3644ef57, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
