@@ -13,6 +13,8 @@ public class HotbarController : MonoBehaviour
 
     private Key[] hotbarKeys;
 
+    public PlayerMovement playerMovement;
+
     private void Awake()
     {
         itemDictionary = FindObjectOfType<ItemDictionary>();
@@ -42,6 +44,14 @@ public class HotbarController : MonoBehaviour
         {
             Item item = slot.currentItem.GetComponent<Item>();
             item.UseItem();
+            if (item.ID == 3)
+            {
+                if (playerMovement.teleport == false)
+                {
+                    playerMovement.teleport = true;
+                }
+                playerMovement.teleportCount += 3;
+            }
         }
     }
 

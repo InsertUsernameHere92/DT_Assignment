@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "name": "My project (1)",
+    "name": "PlayerInputActions",
     "maps": [
         {
             "name": "Player",
@@ -28,6 +28,15 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "f1536271-db82-4a33-b64a-88ac312b9a8a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Teleport",
+                    "type": "Button",
+                    "id": "d7d5dcdb-560e-402e-b2c7-05b03ff89508",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -252,6 +261,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0e8f887-9d7f-4a01-ac30-76e0f01c8d93",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Teleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
