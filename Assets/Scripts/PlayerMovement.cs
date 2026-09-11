@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
             if (teleportCount > 0)
             {
                 Vector2 pCenterPos = pCenter.transform.position;
-                RaycastHit2D hit = Physics2D.Raycast(pCenterPos + (moveInput * 0.5f), moveInput, teleportDistance);
+                RaycastHit2D hit = Physics2D.Raycast(pCenter.transform.position, moveInput, teleportDistance, LayerMask.GetMask("Collision"));
                 if (hit && hit.collider.tag != "Player")
                 {
                     Player.transform.position = hit.point - (moveInput * 0.5f);
