@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public int teleportCount = 0;
     private PlayerInputActions playerInputActions;
     public GameObject Player;
+    public GameObject pCenter;
 
     private void Awake()
     {
@@ -33,11 +34,20 @@ public class PlayerMovement : MonoBehaviour
         {
             if (teleportCount > 0)
             {
-                teleportCount -= 1;
-                Debug.Log("TELEPORT TIME!");
-                Vector2 playerPos = Player.transform.position;
-                Vector2 newPos = playerPos + (moveInput * teleportDistance);
-                Player.transform.position = newPos;
+                Vector2 pCenterPos = pCenter.transform.position;
+                RaycastHit2D hit = Physics2D.Raycast(pCenterPos + (moveInput * 0.5f), moveInput, teleportDistance);
+                if (hit && hit.collider.tag != "Player")
+                {
+                    Player.transform.position = hit.point - (moveInput * 0.5f);
+                }
+                else
+                {
+                    teleportCount -= 1;
+                    Debug.Log("TELEPORT TIME!");
+                    Vector2 playerPos = Player.transform.position;
+                    Vector2 newPos = playerPos + (moveInput * teleportDistance);
+                    Player.transform.position = newPos;
+                }
             }
         }
     }
