@@ -85,9 +85,4 @@ public class SaveController : MonoBehaviour
             }
         }
     }
-
-    public void DeleteSave()
-    {
-        File.Delete(saveLocation);
-    }
 }
