@@ -11,6 +11,7 @@ public class SaveController : MonoBehaviour
     private InventoryController inventoryController;
     private HotbarController hotbarController;
     private Chest[] chests;
+    public GameObject deathScreen;
 
     void Start()
     {
@@ -53,6 +54,8 @@ public class SaveController : MonoBehaviour
 
     public void LoadGame()
     {
+        Time.timeScale = 1f;
+        deathScreen.SetActive(false);
         if (File.Exists(saveLocation))
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));

@@ -5,14 +5,15 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private PlayerManager playerManager;
-    public GameObject target;
+    private GameObject target;
     public float speed = 3f;
     public float rotateSpeed = 0.0025f;
     private Rigidbody2D rb;
     private float distanceToPlayer;
-    public float chaseDistance = 5f;
+    public float chaseDistance = 10f;
     public int damage = 1;
-    public Vector3 startPos = new Vector3(0.02f, 8.54f);
+    public int health = 5;
+    public int maxHealth = 5;
 
     void Start()
     {
@@ -22,7 +23,11 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if(target)
+        if (!target)
+        {
+            GetTarget();
+        }
+        if (target)
         {
             distanceToPlayer = Vector2.Distance(transform.position, target.transform.position);
             RotateTowardsTarget();
@@ -32,7 +37,7 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(target)
+        if (target)
         {
             Move();
         }
@@ -64,6 +69,15 @@ public class EnemyController : MonoBehaviour
         if (distanceToPlayer <= chaseDistance)
         {
             rb.velocity = transform.up * speed;
+        }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
