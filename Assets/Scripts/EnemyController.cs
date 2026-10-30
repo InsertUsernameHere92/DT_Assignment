@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private PlayerManager playerManager;
+    private EnemyBoundary enemyBoundary;
     private GameObject target;
     public float speed = 3f;
     public float rotateSpeed = 0.0025f;
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerManager = FindObjectOfType<PlayerManager>();
+        enemyBoundary = FindObjectOfType<EnemyBoundary>();
     }
 
     void Update()
@@ -77,6 +79,7 @@ public class EnemyController : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
+            enemyBoundary.enemyDead = true;
             Destroy(gameObject);
         }
     }

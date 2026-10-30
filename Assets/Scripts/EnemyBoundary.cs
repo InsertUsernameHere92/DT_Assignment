@@ -12,6 +12,7 @@ public class EnemyBoundary : MonoBehaviour
     public bool enemySpawned;
     public int enemyDamageTaken;
     private bool hasTriggered;
+    public bool enemyDead;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,19 +20,22 @@ public class EnemyBoundary : MonoBehaviour
         {
             enemy.transform.position = startPos;
         }
-        if (collision.gameObject.CompareTag("Player"))
+        if (!enemyDead)
         {
-            if (!hasTriggered)
+            if (collision.gameObject.CompareTag("Player"))
             {
-                if (!enemySpawned)
+                if (!hasTriggered)
                 {
-                    hasTriggered = true;
-                    SpawnEnemy();
-                }
-                else
-                {
-                    hasTriggered = true;
-                    DespawnEnemy();
+                    if (!enemySpawned)
+                    {
+                        hasTriggered = true;
+                        SpawnEnemy();
+                    }
+                    else
+                    {
+                        hasTriggered = true;
+                        DespawnEnemy();
+                    }
                 }
             }
         }
