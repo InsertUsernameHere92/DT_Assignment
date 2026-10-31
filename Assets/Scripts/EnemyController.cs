@@ -6,9 +6,10 @@ public class EnemyController : MonoBehaviour
 {
     private PlayerManager playerManager;
     private EnemyBoundary enemyBoundary;
+    private Weapons weapons;
     private GameObject target;
     public float speed = 3f;
-    public float rotateSpeed = 0.0025f;
+    public float rotateSpeed = 0.025f;
     private Rigidbody2D rb;
     private float distanceToPlayer;
     public float chaseDistance = 10f;
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerManager = FindObjectOfType<PlayerManager>();
         enemyBoundary = FindObjectOfType<EnemyBoundary>();
+        weapons = FindObjectOfType<Weapons>();
     }
 
     void Update()
@@ -77,9 +79,11 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
+        Debug.Log(health);
         if (health <= 0)
         {
             enemyBoundary.enemyDead = true;
+            weapons.enemyInRange = false;
             Destroy(gameObject);
         }
     }

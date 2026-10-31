@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float teleportDistance = 5f;
     //[SerializeField] private InputActionReference teleportRef;
     private Rigidbody2D rb;
-    private Vector2 moveInput;
+    public Vector2 moveInput;
     public bool teleport = false;
     public int teleportCount = 0;
     private PlayerInputActions playerInputActions;

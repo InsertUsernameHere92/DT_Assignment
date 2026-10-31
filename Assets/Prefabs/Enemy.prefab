@@ -161,3 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc20b600fc8eb4b4192ef836367043ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
+  rotateSpeed: 0.025
+  chaseDistance: 10
+  damage: 1
+  health: 5
+  maxHealth: 5

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class HotbarController : MonoBehaviour
 {
@@ -14,9 +15,15 @@ public class HotbarController : MonoBehaviour
     private Key[] hotbarKeys;
 
     public PlayerMovement playerMovement;
+    private Weapons weapons;
+    public PlayerManager playerManager;
+
+    public int potionHealAmount = 5;
 
     private void Awake()
     {
+        weapons = FindObjectOfType<Weapons>();
+        playerManager = FindObjectOfType<PlayerManager>();
         itemDictionary = FindObjectOfType<ItemDictionary>();
 
         hotbarKeys = new Key[slotCount];
@@ -44,6 +51,29 @@ public class HotbarController : MonoBehaviour
         {
             Item item = slot.currentItem.GetComponent<Item>();
             item.UseItem();
+            if (item.ID == 1)
+            {
+                if (playerManager.currentHealth < playerManager.maxHealth)
+                {
+                    if (playerManager.damageTaken < potionHealAmount)
+                    {
+                        playerManager.currentHealth += potionHealAmount;
+                        Debug.Log(playerManager.currentHealth);
+                        playerManager.damageTaken = playerManager.maxHealth - playerManager.currentHealth;
+                    }
+                    else
+                    {
+                        playerManager.currentHealth = playerManager.maxHealth;
+                        Debug.Log(playerManager.currentHealth);
+                        playerManager.damageTaken = 0;
+                    }
+                }
+                else
+                {
+                    Debug.Log("At max health");
+                }
+                weapons.weaponUsedLast = false;
+            }
             if (item.ID == 3)
             {
                 if (playerMovement.teleport == false)
@@ -51,6 +81,16 @@ public class HotbarController : MonoBehaviour
                     playerMovement.teleport = true;
                 }
                 playerMovement.teleportCount += 3;
+                weapons.weaponUsedLast = false;
+            }
+            if (item.ID == 5)
+            {
+                weapons.STICK();
+                weapons.weaponUsedLast = true;
+            }
+            else
+            {
+                weapons.weaponUsedLast = false;
             }
         }
     }

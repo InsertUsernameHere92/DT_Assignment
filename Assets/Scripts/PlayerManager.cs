@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     public int currentHealth;
     public GameObject deathScreen;
     private EnemyBoundary enemyBoundary;
+    public int damageTaken;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     {
         currentHealth -= amount;
         Debug.Log(currentHealth);
+        damageTaken = maxHealth - currentHealth;
         if (currentHealth <= 0)
         {
             Time.timeScale = 0;
